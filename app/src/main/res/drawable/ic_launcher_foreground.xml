@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Atom Orbit Ring 1 -->
+    <path
+        android:pathData="M32,54 C32,44 76,44 76,54 C76,64 32,64 32,54 Z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#6038BDF8"
+        android:fillColor="#00000000" />
+    <!-- Atom Orbit Ring 2 (Rotated 60 deg visual) -->
+    <path
+        android:pathData="M37,42 C45,34 69,66 71,66 C73,66 63,74 53,74 C43,74 29,50 37,42 Z"
+        android:strokeWidth="1.5"
+        android:strokeColor="#60F43F5E"
+        android:fillColor="#00000000" />
+    
+    <!-- Erlenmeyer Beaker Body -->
+    <path
+        android:pathData="M48,32 L60,32 L60,42 L74,68 C76,72 73,76 68,76 L40,76 C35,76 32,72 34,68 L48,42 Z"
+        android:strokeWidth="2.5"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="40"
+                android:startY="50"
+                android:endX="68"
+                android:endY="76"
+                android:type="linear">
+                <item android:color="#3006B6D4" android:offset="0.0" />
+                <item android:color="#803B82F6" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    
+    <!-- Chemical Liquid in Beaker -->
+    <path
+        android:pathData="M44,52 Q54,48 64,52 L73,68 C74,70 72,74 68,74 L40,74 C36,74 34,70 35,68 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="54"
+                android:startY="50"
+                android:endX="54"
+                android:endY="74"
+                android:type="linear">
+                <item android:color="#22D3EE" android:offset="0.0" />
+                <item android:color="#0284C7" android:offset="0.6" />
+                <item android:color="#4F46E5" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Beaker Lip Top -->
+    <path
+        android:pathData="M46,32 L62,32"
+        android:strokeWidth="3"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round" />
+
+    <!-- Reaction Bubbles -->
+    <path
+        android:pathData="M52,60 A2,2 0 1,1 52,56 A2,2 0 1,1 52,60 Z"
+        android:fillColor="#E0F2FE" />
+    <path
+        android:pathData="M58,64 A1.5,1.5 0 1,1 58,61 A1.5,1.5 0 1,1 58,64 Z"
+        android:fillColor="#E0F2FE" />
+    <path
+        android:pathData="M48,67 A1.2,1.2 0 1,1 48,64.6 A1.2,1.2 0 1,1 48,67 Z"
+        android:fillColor="#E0F2FE" />
+    
+    <!-- Rising Sparkles / Electrons -->
+    <path
+        android:pathData="M54,26 L55.5,29 L58.5,30.5 L55.5,32 L54,35 L52.5,32 L49.5,30.5 L52.5,29 Z"
+        android:fillColor="#FBBF24" />
+    <path
+        android:pathData="M70,44 L71,46 L73,47 L71,48 L70,50 L69,48 L67,47 L69,46 Z"
+        android:fillColor="#F43F5E" />
+    <path
+        android:pathData="M38,46 L39,48 L41,49 L39,50 L38,52 L37,50 L35,49 L37,48 Z"
+        android:fillColor="#38BDF8" />
+</vector>
+

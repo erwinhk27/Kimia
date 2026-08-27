@@ -1,0 +1,7 @@
+{
+  "name": "Kimia Master",
+  "description": "Aplikasi Belajar Kimia SMA dari Dasar hingga Mahir untuk Persiapan TKA dengan materi adaptif, tes diagnostik, simulasi TKA, kalkulator, dan Chemia AI Tutor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
