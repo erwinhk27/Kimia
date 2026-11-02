@@ -114,9 +114,11 @@ fun KimiaMasterApp(viewModel: ChemistryViewModel = viewModel()) {
                     onAnswerQuestion = { qId, ans -> viewModel.answerDiagnosticQuestion(qId, ans) },
                     onNextQuestion = { viewModel.nextDiagnosticQuestion() },
                     onPrevQuestion = { viewModel.prevDiagnosticQuestion() },
+                    onJumpToQuestion = { idx -> viewModel.jumpToDiagnosticQuestion(idx) },
                     onFinishDiagnostic = { viewModel.finishDiagnostic() },
                     onStartDiagnostic = { viewModel.startDiagnostic() },
-                    onNavigateToRoadmap = { viewModel.navigateToTab("roadmap") }
+                    onNavigateToRoadmap = { viewModel.navigateToTab("roadmap") },
+                    onNavigateToAiTutor = { viewModel.navigateToTab("ai_tutor") }
                 )
 
                 "tka" -> TkaSimulationScreen(
@@ -142,7 +144,8 @@ fun KimiaMasterApp(viewModel: ChemistryViewModel = viewModel()) {
 
                 "ai_tutor" -> AiTutorScreen(
                     uiState = uiState,
-                    onSendMessage = { viewModel.sendAiPrompt(it) }
+                    onSendMessage = { prompt, mode -> viewModel.sendAiPrompt(prompt, mode) },
+                    onClearChat = { viewModel.clearAiChat() }
                 )
 
                 "progress" -> ProgressReportScreen(

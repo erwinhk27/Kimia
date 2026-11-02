@@ -31,6 +31,8 @@ val ChemRose = Color(0xFFEF4444) // Rose / Red 500
 val ChemRoseBg = Color(0xFFFEF2F2) // Rose 50
 val ChemCyan = Color(0xFF06B6D4) // Cyan 500
 val ChemCyanBg = Color(0xFFECFEFF) // Cyan 50
+val ChemSky = Color(0xFF0284C7) // Sky / Light Blue 600
+val ChemSkyBg = Color(0xFFF0F9FF) // Sky 50
 val ChemPurple = Color(0xFF8B5CF6) // Purple 500
 val ChemPurpleBg = Color(0xFFF5F3FF) // Purple 50
 

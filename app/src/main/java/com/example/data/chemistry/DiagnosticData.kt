@@ -196,7 +196,8 @@ object DiagnosticData {
                 topicCorrectMap[q.topicId] = (topicCorrectMap[q.topicId] ?: 0) + 1
             } else {
                 // Record misconception
-                misconceptions.add("Perlu penguatan konsep pada: {q.conceptTested} ({q.whyExplanation.ifEmpty { q.explanation }})")
+                val tip = if (q.whyExplanation.isNotEmpty()) q.whyExplanation else q.explanation
+                misconceptions.add("Perlu penguatan pada konsep: ${q.conceptTested} ($tip)")
             }
         }
 
@@ -229,9 +230,9 @@ object DiagnosticData {
             topicScores[topicId] = pct
             val name = topicNames[topicId] ?: topicId
             if (pct >= 75) {
-                strengths.add("name (pct%)")
+                strengths.add("$name ($pct%)")
             } else {
-                weaknesses.add("name (pct%)")
+                weaknesses.add("$name ($pct%)")
                 recommendedTopicIds.add(topicId)
             }
         }

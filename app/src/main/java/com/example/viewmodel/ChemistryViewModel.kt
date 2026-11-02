@@ -175,6 +175,13 @@ class ChemistryViewModel : ViewModel() {
         }
     }
 
+    fun jumpToDiagnosticQuestion(index: Int) {
+        val total = DiagnosticData.diagnosticQuestions.size
+        if (index in 0 until total) {
+            _uiState.update { it.copy(diagnosticCurrentIndex = index) }
+        }
+    }
+
     fun finishDiagnostic() {
         val answers = _uiState.value.diagnosticAnswers
         val result = DiagnosticData.evaluateDiagnostic(answers)
@@ -317,10 +324,10 @@ class ChemistryViewModel : ViewModel() {
     }
 
     // AI Tutor Actions
-    fun sendAiPrompt(prompt: String) {
+    fun sendAiPrompt(prompt: String, mode: String = "socratic") {
         if (prompt.isBlank()) return
 
-        val userMessage = ChatMessage(sender = "user", text = prompt)
+        val userMessage = ChatMessage(sender = "user", text = prompt, socraticMode = mode)
         _uiState.update {
             it.copy(
                 chatMessages = it.chatMessages + userMessage,
@@ -329,14 +336,32 @@ class ChemistryViewModel : ViewModel() {
         }
 
         viewModelScope.launch {
-            val response = AiTutorEngine.getTutorResponse(_uiState.value.chatMessages, prompt)
-            val aiMessage = ChatMessage(sender = "ai", text = response)
+            val (responseText, followUps) = AiTutorEngine.getTutorResponse(_uiState.value.chatMessages, prompt, mode)
+            val aiMessage = ChatMessage(
+                sender = "ai",
+                text = responseText,
+                socraticMode = mode,
+                suggestedFollowUps = followUps
+            )
             _uiState.update {
                 it.copy(
                     chatMessages = it.chatMessages + aiMessage,
                     isAiThinking = false
                 )
             }
+        }
+    }
+
+    fun clearAiChat() {
+        _uiState.update {
+            it.copy(
+                chatMessages = listOf(
+                    ChatMessage(
+                        sender = "ai",
+                        text = "Halo! Saya **CHEMIA AI**, tutor cerdas Kimia SMA & spesialis persiapan TKA Anda. Silakan pilih mode bimbingan (Socratic, Clue, Analogi, Perhitungan, atau Diagram) dan tanyakan konsep/soal apa pun!"
+                    )
+                )
+            )
         }
     }
 
